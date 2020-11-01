@@ -1,6 +1,6 @@
 import random
 import string
-N = 100000
+N = 1000000
 
 with open("input.txt", "w") as f:
     for i in range(N):
@@ -18,11 +18,3 @@ with open("input.txt", "w") as f:
             f.write(" ")
             f.write(str(random.randint(0, 100000)))
             f.write("\n")
-        elif(k == 4):
-            f.write("! Save C:\\Users\\SuperPC\\Downloads\\VSC\\DA\\da_exercise_02\\build\\Debug\\trash\\")
-            f.write("".join(random.choice(string.ascii_lowercase) for i in range(random.randint(1, 4))))
-            f.write(".txt\n")
-        elif(k == 5):
-            f.write("! Load C:\\Users\\SuperPC\\Downloads\\VSC\\DA\\da_exercise_02\\build\\Debug\\trash\\")
-            f.write("".join(random.choice(string.ascii_lowercase) for i in range(random.randint(1, 4))))
-            f.write(".txt\n")

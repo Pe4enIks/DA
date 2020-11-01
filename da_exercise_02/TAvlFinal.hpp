@@ -19,6 +19,6 @@ struct TAvlFinal : public TAvl
 	public:
 		void DInsert();
 		void DRemove();
-		void DFind(const TData&);
+		void DFind(TData const&);
 		void LoadSave();
 };

@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{965EF293-161C-37F7-8323-1A5B0011A363}</ProjectGuid>
+    <ProjectGuid>{F1922844-F2A6-317F-BE5D-49F579CB2915}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
-    <ProjectName>da_exercise_02</ProjectName>
+    <ProjectName>da_benchmark_02</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -57,26 +57,26 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_02\build\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">da_exercise_02.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">da_exercise_02</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">da_benchmark_02.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">da_benchmark_02</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_02\build\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">da_exercise_02.dir\Release\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">da_exercise_02</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">da_benchmark_02.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">da_benchmark_02</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_02\build\MinSizeRel\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">da_exercise_02.dir\MinSizeRel\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">da_exercise_02</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">da_benchmark_02.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">da_benchmark_02</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_02\build\RelWithDebInfo\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">da_exercise_02.dir\RelWithDebInfo\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">da_exercise_02</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">da_benchmark_02.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">da_benchmark_02</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
@@ -115,8 +115,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/Debug/da_exercise_02.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/Debug/da_exercise_02.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/Debug/da_benchmark_02.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/Debug/da_benchmark_02.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -157,8 +157,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/Release/da_exercise_02.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/Release/da_exercise_02.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/Release/da_benchmark_02.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/Release/da_benchmark_02.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -199,8 +199,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/MinSizeRel/da_exercise_02.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/MinSizeRel/da_exercise_02.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/MinSizeRel/da_benchmark_02.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/MinSizeRel/da_benchmark_02.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -240,8 +240,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/RelWithDebInfo/da_exercise_02.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/RelWithDebInfo/da_exercise_02.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/RelWithDebInfo/da_benchmark_02.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/SuperPC/Downloads/VSC/DA/da_exercise_02/build/RelWithDebInfo/da_benchmark_02.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -305,7 +305,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_02\main.cpp" />
+    <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_02\benchmark.cpp" />
     <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_02\TData.cpp" />
     <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_02\TAvl.cpp" />
     <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_02\TAvlFinal.cpp" />

@@ -7,7 +7,7 @@
 //Конструктор по умолчанию
 TData::TData() : cap_(0), size_(0), data_(nullptr) {}
 
-//Контсруктор с одним параметром
+//Конструктор с одним параметром
 TData::TData(char const* str)
 {
 	this->size_ = std::strlen(str);

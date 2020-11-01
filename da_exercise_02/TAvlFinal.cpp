@@ -66,7 +66,7 @@ TAvlNode* TAvlFinal::Load(std::istream& is, TAvlNode const* node)
 //Сохранение в файл
 bool TAvlFinal::FileSave(TData& fileName)
 {
-	std::ofstream os{ fileName.Data(), std::ios::binary | std::ios::out };
+	std::ofstream os(fileName.Data(), std::ios::binary | std::ios::out);
 	if (os) { Save(os, root_); }
 	else { return false; }
 	os.close();
@@ -76,7 +76,7 @@ bool TAvlFinal::FileSave(TData& fileName)
 //Загрузка из файла
 bool TAvlFinal::FileLoad(TData& fileName)
 {
-	std::ifstream is{ fileName.Data(), std::ios::binary | std::ios::in };
+	std::ifstream is(fileName.Data(), std::ios::binary | std::ios::in);
 	if (is)
 	{
 		TreeDelete(root_);
@@ -105,7 +105,7 @@ void TAvlFinal::DRemove()
 	DeletePrint(std::move(key));
 }
 
-void TAvlFinal::DFind(const TData& k)
+void TAvlFinal::DFind(TData const& k)
 {
 	TData key(k);
 	Upper(key);

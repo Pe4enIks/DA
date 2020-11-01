@@ -27,14 +27,14 @@ struct TAvl
 	TAvlNode* RotateRightLeft(TAvlNode*);
 	TAvlNode* RotateLeftRight(TAvlNode*);
 	TAvlNode* ReBalance(TAvlNode*);
-	TAvlNode* InsertPrint(TAvlNode*, TData, uint64_t);
+	TAvlNode* InsertPrint(TAvlNode*, TData, uint64_t, bool const&);
 	TAvlNode* RemoveMin(TAvlNode*, TAvlNode*);
-	TAvlNode* RemovePrint(TAvlNode*, TData);
+	TAvlNode* RemovePrint(TAvlNode*, TData,  bool const&);
 	TAvlNode* Find(TAvlNode*, TData k);
 	void TreeDelete(TAvlNode*);
 	TAvl() : root_(nullptr) {};
-	void InsPrint(TData k, uint64_t v) { root_ = InsertPrint(root_, std::move(k), v); }
-	void DeletePrint(TData k) {	root_ = RemovePrint(root_, std::move(k)); }
+	void InsPrint(TData k, uint64_t v) { root_ = InsertPrint(root_, std::move(k), v, false); }
+	void DeletePrint(TData k) {	root_ = RemovePrint(root_, std::move(k), false); }
 	TAvlNode* Find(TData k) { return Find(root_, std::move(k));	}
 	~TAvl() { TreeDelete(root_); }
 };

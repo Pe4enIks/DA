@@ -57,21 +57,21 @@ TAvlNode* TAvl::ReBalance(TAvlNode* node)
 }
 
 //Вставка с печатью на экран
-TAvlNode* TAvl::InsertPrint(TAvlNode* node, TData k, uint64_t v)
+TAvlNode* TAvl::InsertPrint(TAvlNode* node, TData k, uint64_t v, bool const& benchmark_flag)
 {
 	if (node == nullptr)
 	{
 		try { node = new TAvlNode(k, v); }
 		catch (std::exception& e)
 		{
-			std::cout << "ERROR: " << e.what() << "\n";
+			if(!benchmark_flag) { std::cout << "ERROR: " << e.what() << "\n"; }
 			return nullptr;
 		}
-		std::cout << "OK\n";
+		if(!benchmark_flag) {std::cout << "OK\n";}
 		return node;
 	}
-	if (k < node->key_) { node->l_ = InsertPrint(node->l_, k, v); }
-	else if (k > node->key_) { node->r_ = InsertPrint(node->r_, k, v); }
+	if (k < node->key_) { node->l_ = InsertPrint(node->l_, k, v, benchmark_flag); }
+	else if (k > node->key_) { node->r_ = InsertPrint(node->r_, k, v, benchmark_flag); }
 	else { std::cout << "Exist\n"; }
 	return ReBalance(node);
 }
@@ -92,15 +92,15 @@ TAvlNode* TAvl::RemoveMin(TAvlNode* node, TAvlNode* tmp)
 }
 
 //Удаление с печатью
-TAvlNode* TAvl::RemovePrint(TAvlNode* node, TData k)
+TAvlNode* TAvl::RemovePrint(TAvlNode* node, TData k, bool const& benchmark_flag)
 {
 	if (node == nullptr)
 	{
-		std::cout << "NoSuchWord\n";
+		if(!benchmark_flag) { std::cout << "NoSuchWord\n"; }
 		return nullptr;
 	}
-	if (k < node->key_) {node->l_ = RemovePrint(node->l_, k); }
-	else if (k > node->key_) { node->r_ = RemovePrint(node->r_, k);	}
+	if (k < node->key_) {node->l_ = RemovePrint(node->l_, k, benchmark_flag); }
+	else if (k > node->key_) { node->r_ = RemovePrint(node->r_, k, benchmark_flag);	}
 	else
 	{
 		TAvlNode* l = node->l_;
@@ -108,23 +108,23 @@ TAvlNode* TAvl::RemovePrint(TAvlNode* node, TData k)
 		if (l == nullptr && r == nullptr)
 		{
 			delete node;
-			std::cout << "OK\n";
+			if(!benchmark_flag) { std::cout << "OK\n"; }
 			return nullptr;
 		}
 		if (r == nullptr)
 		{
 			delete node;
-			std::cout << "OK\n";
+			if(!benchmark_flag) { std::cout << "OK\n"; }
 			return l;
 		}
 		if (l == nullptr)
 		{
 			delete node;
-			std::cout << "OK\n";
+			if(!benchmark_flag) { std::cout << "OK\n"; }
 			return r;
 		}
 		node->r_ = RemoveMin(node, r);
-		std::cout << "OK\n";
+		if(!benchmark_flag) { std::cout << "OK\n"; }
 	}
 	return ReBalance(node);
 }
