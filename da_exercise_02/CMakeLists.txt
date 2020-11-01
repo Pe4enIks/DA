@@ -1,0 +1,4 @@
+cmake_minimum_required(VERSION 3.5)
+project(da_exercise_02)
+add_executable(da_exercise_02 main.cpp TData.cpp TAvl.cpp TAvlFinal.cpp)
+set_target_properties(da_exercise_02 PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
