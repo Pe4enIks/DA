@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.5)
+project(da_exercise_04)
+add_executable(da_exercise_04 main.cpp bm.cpp pattern_parse.cpp text_parse.cpp)
+set_target_properties(da_exercise_04 PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
+add_executable(da_benchmark_04 benchmark.cpp bm.cpp pattern_parse.cpp text_parse.cpp)
+set_target_properties(da_benchmark_04 PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)

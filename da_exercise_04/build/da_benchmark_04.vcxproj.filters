@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_04\benchmark.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_04\bm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_04\pattern_parse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_04\text_parse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\SuperPC\Downloads\VSC\DA\da_exercise_04\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B4BC4188-0317-3660-AD11-50FD7E589697}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
