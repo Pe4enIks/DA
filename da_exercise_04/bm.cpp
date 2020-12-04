@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cmath>
 #include <string>
+#include <unordered_map>
 #include <map>
 #include <vector>
 #include "bm.hpp"
@@ -48,12 +49,19 @@ std::pair<std::vector<size_t>,std::vector<size_t>> LFunctions(std::vector<unsign
     return std::pair<std::vector<size_t>,std::vector<size_t>>(l,L);
 }
 
+void BadChars(std::vector<unsigned int>& pattern, std::unordered_map<unsigned int, size_t>& bad_chars)
+{
+    for(size_t i = 0; i < pattern.size(); ++i) { bad_chars.insert({pattern[pattern.size()-i-1], pattern.size()-i-1}); }
+}
+
 
 void BM(std::vector<std::pair<std::pair<size_t, size_t>, unsigned int>> const& text, std::vector<unsigned int>& pattern, bool const& benchmark_flag)
 {
-    int k = pattern.size() - 1;
+    size_t k = pattern.size() - 1;
+    std::unordered_map<unsigned int, size_t> bad_chars;
     std::vector<int> entry;
     std::pair<std::vector<size_t>, std::vector<size_t>> l_funcs = LFunctions(pattern);
+    BadChars(pattern, bad_chars);
     while (k < text.size())
     {
         int i = pattern.size() - 1;
@@ -70,15 +78,17 @@ void BM(std::vector<std::pair<std::pair<size_t, size_t>, unsigned int>> const& t
         }
         else
         {
-            int maxsuff = 1;
-            int maxsymb = 1;
-            if (i == pattern.size() - 1) { maxsuff = 1; }
-            else
+            size_t maxsuff = 1;
+            size_t maxsymb = 1;
+            size_t bc = 0;
+            if(bad_chars.find(text[j].second) != bad_chars.end()) { bc = bad_chars[text[j].second]; }
+            if (i != pattern.size() - 1)
             {
                 if (l_funcs.first[i + 1] > 0) {  maxsuff = pattern.size() - l_funcs.first[i + 1] - 1; }
                 else { maxsuff = pattern.size() - l_funcs.second[i + 1]; }
             }
-            k += std::max(maxsuff, maxsymb);
+            if(bc < i) { maxsymb = i-bc; }
+            k += std::max({maxsuff, maxsymb, static_cast<size_t>(1)});
         }
     }
     if(!benchmark_flag) {for(size_t i = 0; i < entry.size(); ++i) { std::cout << text[entry[i]].first.first << "," << text[entry[i]].first.second << "\n"; } }

@@ -45,6 +45,10 @@
         "cctype": "cpp",
         "chrono": "cpp",
         "fstream": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "list": "cpp",
+        "unordered_set": "cpp",
+        "xhash": "cpp",
+        "unordered_map": "cpp"
     }
 }
