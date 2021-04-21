@@ -7,3 +7,4 @@
 4. [вариант 2-2](/da_tasks/da_4.pdf)
 5. [вариант 1](/da_tasks/da_5.pdf)
 6. [вариант 0](/da_tasks/da_6.pdf)
+7. [вариант 5](/da_tasks/da_7.pdf)
