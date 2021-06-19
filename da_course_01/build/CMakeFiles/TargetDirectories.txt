@@ -1,0 +1,3 @@
+C:/Users/SuperPC/Downloads/VSC/DA/da_course_01/build/CMakeFiles/lzw.dir
+C:/Users/SuperPC/Downloads/VSC/DA/da_course_01/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/SuperPC/Downloads/VSC/DA/da_course_01/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,165 @@
+\section{Алогритм lzw}
+В 1984 г. Terry A. Welch опубликовал свою работу с модифицированным алгоритмом LZ78, получившим в дальнейшем название LZW. LZW позволяет достичь одну из наилучших степеней сжатия среди других существующих методов сжатия, при полном отсутствии потерь или искажений в исходных файлах. В настоящее время используется в файлах формата TIFF, PDF, а также в программе для сжатия ZIP.
+
+\textbf{Кодирование:}
+\begin{enumerate}
+\item Все возможные символы заносятся в словарь и получают свой номер(например в unordered\_map). Во входную фразу P заносится первый символ текста.
+\item Считать символ текста C.
+\item Если C - EOF, то записываем в вектор код для P, иначе
+\begin{itemize}
+\item Если текст P+C есть в словаре, то присвоить входной фразе текст P+C и перейти к шагу 2.
+\item Если текста P+C нет в словаре, то записать в вектор код для фразы P, добавить P+C в словарь, присвоить входной фразе значение C и перейти к шагу 2.
+\end{itemize}
+\end{enumerate}
+
+\textbf{Декодирование:}
+\begin{enumerate}
+\item Все возможные символы заносятся в словарь и получают свой номер(например в unordered\_map). Во входную фразу P заносится первый код из вектора сжатого текста.
+\item Считать код C из вектора сжатого текста.
+\item Если C - последний код, то выдать символ для кода P, иначе
+\begin{itemize}
+\item Если фразы с кодом P+C нет в словаре, то вывести фразу для кода P, а фразу с кодом P+C занести в словарь и перейти к шагу 2.
+\item Если фраза с кодом P+C есть в словаре, то присвоить входной фразе код P+C и перейти к шагу 2.
+\end{itemize}
+\end{enumerate}
+	
+\pagebreak
+
+\section{Код}
+
+\begin{lstlisting}[language=C]
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <string>
+#include <unordered_map>
+#include <chrono>
+
+std::pair<std::unordered_map<std::string, size_t>, size_t> init_dict_for_compress()
+{
+    std::unordered_map<std::string, size_t> m;
+    size_t ind = 1;
+    for(char symb = 'a'; symb <= 'z'; ++symb)
+    {
+        std::string s(sizeof(char), symb);
+        m[s] = ind;
+        ++ind;
+    }
+    std::string space(sizeof(char), ' ');
+    m[space] = ind;
+    ++ind;
+    return std::pair(m, ind);
+}
+
+std::pair<std::unordered_map<size_t, std::string>, size_t> init_dict_for_decompress()
+{
+    std::unordered_map<size_t, std::string> m;
+    size_t ind = 1;
+    for(char symb = 'a'; symb <= 'z'; ++symb)
+    {
+        std::string s(sizeof(char), symb);
+        m[ind] = s;
+        ++ind;
+    }
+    std::string space(sizeof(char), ' ');
+    m[ind] = space;
+    ++ind;
+    return std::pair(m, ind);
+}
+
+std::pair<std::vector<size_t>, size_t> compress()
+{
+    std::pair<std::unordered_map<std::string, size_t>, size_t> dict = init_dict_for_compress();
+    std::vector<size_t> res;
+    std::string p = "";
+    size_t count = 0;
+    char c = '0';
+    while(std::cin.get(c))
+    {
+        ++count;
+        if(dict.first.find(p+c) != dict.first.end())
+            p += c;
+        else
+        {
+            res.push_back(dict.first[p]);
+            dict.first[p+c] = dict.second;
+            ++dict.second;
+            p = c;
+        }
+    }
+    std::pair<std::vector<size_t>, size_t> result(res, count);
+    return result;
+}
+
+std::string decompress(std::vector<size_t> const& vct)
+{
+    std::pair<std::unordered_map<size_t, std::string>, size_t> dict = init_dict_for_decompress();
+    size_t prev = vct[0];
+    size_t cw;
+    std::string res = dict.first[prev];
+    std::string c = "";
+    c += res[0];
+    std::string out = res;
+    for(size_t i = 0; i < vct.size()-1; ++i)
+    {
+        cw = vct[i+1];
+        if(dict.first.count(cw) == 0)
+        {
+            res = dict.first[prev];
+            res += c;
+        }
+        else
+            res = dict.first[cw];
+        out += res;
+        c = "";
+        c += res[0];
+        dict.first[dict.second] = dict.first[prev] + c;
+        ++dict.second;
+        prev = cw;
+    }
+    return out;
+}
+
+int main()
+{
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    uint64_t compress_time = 0;
+    uint64_t decompress_time = 0;
+    start = std::chrono::system_clock::now();
+    std::pair<std::vector<size_t>, size_t> res = compress();
+    end = std::chrono::system_clock::now();
+    double comp_size = res.first.size();
+    double text_size = res.second;
+    compress_time = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    std::cout << "Compressed file:\n";
+    for(auto& el: res.first)
+        std::cout << el << " ";
+    std::cout << "\n";
+    std::cout << "Decompressed vector:\n";
+    start = std::chrono::system_clock::now();
+    std::cout << decompress(res.first) << "\n";
+    end = std::chrono::system_clock::now();
+    decompress_time = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    std::cout << "Compress time: " << compress_time << " microseconds\n";
+    std::cout << "Decompress time: " << decompress_time << " microseconds\n";
+    std::cout << "Compress coefficient: " << comp_size / text_size << "\n";
+    return 0;
+}
+
+
+\end{lstlisting}
+
+\pagebreak
+
+\section{Результаты работы}
+Коэффициент сжатия = размер сжатого сообщения / размер исходного текста, время измерил при помощи библиотеки chrono.
+
+\textbf{Тесты:}
+\begin{enumerate}
+\item 1000 рандомных букв. Compress time: 11715 microseconds. Decompress time: 9518 microseconds. Compress coefficient: 0.72.
+\item 100 тысяч рандомных букв. Compress time: 608538 microseconds. Decompress time: 400181 microseconds. Compress coefficient: 0.38751.
+\item 1 миллион рандомных букв. Compress time: 5533366 microseconds. Decompress time: 3346934 microseconds. Compress coefficient: 0.313447.
+\item 10 миллионов рандомных букв. Compress time: 54484956 microseconds. Decompress time: 35338798 microseconds. Compress coefficient: 0.257739.
+\end{enumerate}
+
+\pagebreak

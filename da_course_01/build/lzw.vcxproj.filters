@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\SuperPC\Downloads\VSC\DA\da_course_01\lzw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\SuperPC\Downloads\VSC\DA\da_course_01\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{33DBF491-92AC-3C5B-9FEA-BD308A57BB66}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
