@@ -142,7 +142,7 @@ int main()
     decompress_time = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
     std::cout << "Compress time: " << compress_time << " microseconds\n";
     std::cout << "Decompress time: " << decompress_time << " microseconds\n";
-    std::cout << "Compress coefficient: " << comp_size / text_size << "\n";
+    std::cout << "Compress coefficient: " << (comp_size *  sizeof(size_t)) / (text_size * sizeof(char)) << "\n";
     return 0;
 }
 
@@ -152,14 +152,14 @@ int main()
 \pagebreak
 
 \section{Результаты работы}
-Коэффициент сжатия = размер сжатого сообщения / размер исходного текста, время измерил при помощи библиотеки chrono.
+Коэффициент сжатия = (длина вектора сжатого сообщения * размер одного элемента вектора) / (длина исходного текста * размер одного символа текста), время измерил при помощи библиотеки chrono.
 
 \textbf{Тесты:}
 \begin{enumerate}
-\item 1000 рандомных букв. Compress time: 11715 microseconds. Decompress time: 9518 microseconds. Compress coefficient: 0.72.
-\item 100 тысяч рандомных букв. Compress time: 608538 microseconds. Decompress time: 400181 microseconds. Compress coefficient: 0.38751.
-\item 1 миллион рандомных букв. Compress time: 5533366 microseconds. Decompress time: 3346934 microseconds. Compress coefficient: 0.313447.
-\item 10 миллионов рандомных букв. Compress time: 54484956 microseconds. Decompress time: 35338798 microseconds. Compress coefficient: 0.257739.
+\item 1000 рандомных букв. Compress time: 11715 microseconds. Decompress time: 9518 microseconds. Compress coefficient: 2.88.
+\item 100 тысяч рандомных букв. Compress time: 608538 microseconds. Decompress time: 400181 microseconds. Compress coefficient: 1.55.
+\item 1 миллион рандомных букв. Compress time: 5533366 microseconds. Decompress time: 3346934 microseconds. Compress coefficient: 1.25.
+\item 10 миллионов рандомных букв. Compress time: 54484956 microseconds. Decompress time: 35338798 microseconds. Compress coefficient: 1.03.
 \end{enumerate}
 
 \pagebreak
